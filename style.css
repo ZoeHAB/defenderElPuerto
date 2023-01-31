@@ -39,6 +39,8 @@ header p {
 main table {
   background-color: aqua;
   border-collapse: collapse;
+
+  /* De esta forma el tamaño de la tabla se adapta a la pantalla, incluso al girar el movil */
   width: 90vmin;
   height: 90vmin;
   margin: auto;
@@ -51,29 +53,37 @@ main td {
 
   transition: opacity 250ms;
 
+  /* Lo ideal sería calcular con js 100% dividido entre el tamaño (numero de celdas) */
   width: 20%;
   height: 20%;
 }
 
+/* Clase que tienen las casillas antes de clicarles */
 td.hidden {
+  /* Uso opacity para poder hacer transicion */
   opacity: 0;
 }
 
 #modal {
+  /* De esta forma ocupa siempre toda la pantalla */
   position: fixed;
   top: 0;
-  bottom: 0;
   right: 0;
   left: 0;
+  /* Y si no cabe tiene su propio scroll */
+  height: 100vh;
+  overflow: auto;
 
+  /* Fondo transparente, lo de detrás se ve borroso */
   background-color: rgba(255, 255, 255, 0.554);
   backdrop-filter: blur(2px);
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 2rem;
+
+  padding: 2rem;
 }
 
 #modal table {
@@ -96,6 +106,7 @@ th {
   text-align: right;
 }
 
+/* Clase que tiene el modal cuando no se debe ver */
 #modal.closed {
   display: none;
 }
@@ -107,6 +118,8 @@ tr.new {
 
 #modal button {
   padding: 0.5rem 1rem;
+
+  /* Al usar un degradado claro por arriba y oscuro por abajo, da efecto de relieve */
   background: rgb(0, 255, 255);
   background: linear-gradient(
     180deg,
@@ -121,6 +134,7 @@ tr.new {
 }
 
 #modal button:active {
+  /* Al darle la vuelta al degradado da el efecto de meterse hacia dentro */
   background: rgb(0, 255, 255);
   background: linear-gradient(
     0deg,
@@ -129,6 +143,7 @@ tr.new {
   );
 }
 
+/* Si se gira la pantalla... */
 @media (orientation: landscape) {
   body {
     padding: 1rem;
@@ -137,6 +152,7 @@ tr.new {
   }
 }
 
+/* Versión desktop */
 @media (min-width: 600px) {
   body {
     display: flex;
