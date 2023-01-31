@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500;700;900&display=swap");
+
+* {
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+
+  background-color: rgb(154, 255, 255);
+  font-family: "Raleway", sans-serif;
+
+  max-width: 600px;
+  margin: auto;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+
+  padding: 1rem;
+  gap: 1rem;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+}
+
+header p {
+  font-size: 1.5rem;
+}
+
+main table {
+  background-color: aqua;
+  border-collapse: collapse;
+  width: 90vmin;
+  height: 90vmin;
+  margin: auto;
+}
+
+main td {
+  font-size: 10vmin;
+  text-align: center;
+  border: 1px solid rgb(255, 255, 255);
+
+  transition: opacity 250ms;
+
+  width: 20%;
+  height: 20%;
+}
+
+td.hidden {
+  opacity: 0.3;
+}
+
+#modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  background-color: rgba(255, 255, 255, 0.554);
+  backdrop-filter: blur(2px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#modal table {
+  background-color: white;
+  border: 1px solid black;
+  padding: 2rem;
+  border-radius: 2rem;
+}
+
+#modal td,
+th {
+  padding: 0.5rem;
+}
+
+#modal td {
+  border-bottom: 2px dotted black;
+}
+
+#modal td:last-child {
+  text-align: right;
+}
+
+#modal.closed {
+  display: none;
+}
+
+tr.new {
+  background-color: #00ffff;
+  font-weight: bold;
+}
+
+#modal button {
+  padding: 0.5rem 1rem;
+  background: rgb(0, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 255, 1) 2%,
+    rgba(0, 102, 102, 1) 100%
+  );
+
+  border-radius: 5px;
+
+  color: white;
+  font-weight: bold;
+}
+
+#modal button:active {
+  background: rgb(0, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 255, 255, 1) 2%,
+    rgba(0, 102, 102, 1) 100%
+  );
+}
+
+@media (orientation: landscape) {
+  body {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: 600px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+  }
+  main table {
+    width: 550px;
+    height: 550px;
+  }
+
+  main td {
+    font-size: 4rem;
+  }
+}
